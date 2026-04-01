@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+  <h1>DOM-Based XSS Demo</h1>
+
+  <input type="text" id="input" placeholder="Enter something" />
+  <button onclick="showData()">Submit</button>
+
+  <h2>Output:</h2>
+  <div id="output"></div>
+
+  <script>
+    function showData() {
+      const userInput = document.getElementById("input").value;
+
+      // ❌ Vulnerable line
+      document.getElementById("output").innerHTML = userInput;
+    }
+  </script>
+
+
+</body>
+</html>
