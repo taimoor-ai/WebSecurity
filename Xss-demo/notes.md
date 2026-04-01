@@ -1,4 +1,3 @@
-
 ## **1. What is XSS?**
 
 **XSS** stands for  **Cross-Site Scripting** .
