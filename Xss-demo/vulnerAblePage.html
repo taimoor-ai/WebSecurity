@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>XSS Learning Demo</h1>
+
+  <input type="text" id="input" placeholder="Enter comment" />
+  <button onclick="addComment()">Add Comment</button>
+
+  <h2>Comments:</h2>
+  <div id="comments"></div>
+
+  <script>
+    // Simulate a cookie (NOT HttpOnly, for demo)
+    document.cookie = "sessionId=demo123";
+
+    function addComment() {
+      console.log("Adding comment...");
+      const val = document.getElementById("input").value;
+       console.log(val)
+      // ❌ vulnerable rendering
+      document.getElementById("comments").innerHTML += `<p>${val}</p>`;
+    }
+  </script>
+</body>
+</html>
+
+<!-- <img src="x" onerror="alert(document.cookie)" /> -->
